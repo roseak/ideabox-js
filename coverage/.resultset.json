@@ -5,8 +5,31 @@
         1,
         1,
         null
+      ],
+      "/Users/rosekohn/turing/m4/ideabox-js/app/controllers/ideas_controller.rb": [
+        1,
+        null
+      ],
+      "/Users/rosekohn/turing/m4/ideabox-js/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/Users/rosekohn/turing/m4/ideabox-js/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/rosekohn/turing/m4/ideabox-js/app/helpers/api/v1/ideas_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/rosekohn/turing/m4/ideabox-js/app/helpers/ideas_helper.rb": [
+        1,
+        null
       ]
     },
-    "timestamp": 1448922525
+    "timestamp": 1448923185
   }
 }
