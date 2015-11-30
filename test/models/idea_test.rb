@@ -24,4 +24,10 @@ class IdeaTest < ActiveSupport::TestCase
 
     assert_equal "plausible", idea.quality
   end
+
+  test "a quality of 2 is genius" do
+    idea = Idea.create(title: "tester", body: "tested", quality: 2)
+
+    assert_equal "genius", idea.quality
+  end
 end
