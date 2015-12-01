@@ -12,10 +12,11 @@ $(document).ready(function(){
 
 function renderIdeas(idea) {
   $('#idea-listing').append(
-    "<h3>"
+    "<li class='collection-item idea' data-id='" + idea.id
+    + "'><h5>"
     + idea.title
-    + "</h3><p>"
+    + "</h5><p>"
     + idea.body
-    + "</p>"
+    + "</p></li>"
   )
 };
