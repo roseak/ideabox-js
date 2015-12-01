@@ -53,10 +53,11 @@ function createIdea(){
 function deleteIdea() {
   $('#idea-listing').delegate('#delete-idea', 'click', function(){
     var $idea = $(this).closest('.idea')
-
+    console.log($idea)
+    console.log("Data-id: " + $idea.attr('data-id'))
     $.ajax({
       type: 'DELETE',
-      url:  '/api/v1/ideas' + $idea.attr('data-id') + '.json',
+      url:  '/api/v1/ideas/' + $idea.attr('data-id') + '.json',
       success: function(){
         $idea.remove()
       },
