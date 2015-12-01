@@ -11,11 +11,11 @@ $(document).ready(function(){
 });
 
 function renderIdeas(idea) {
-  $('#idea-listing').append(
+  $('#idea-listing').prepend(
     "<li class='collection-item idea' data-id='" + idea.id
     + "'><h5>"
     + idea.title
-    + "</h5><p>"
+    + "</h5><p class='truncate'>"
     + idea.body
     + "</p><p>Quality: "
     + idea.quality
