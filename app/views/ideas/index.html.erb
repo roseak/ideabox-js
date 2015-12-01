@@ -1,1 +1,22 @@
-<h1 class="center">Idea Box</h1>
+<div class="container">
+  <div class="row">
+    <h1 class="center">Idea Box</h1>
+  </div>
+  <div class="row">
+    <div class="col m10 offset-m2" id="search-form">
+      <div class="form-group col m9" id="search-box">
+        <input class="form-control" type="search" id="search-query">
+        <label for="search-query">What ideas are you looking for?</label>
+      </div>
+      <div class="col m2">
+        <input class="btn btn-default pull-right" id="button-fetch" type="button" name="submit" value="Search">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col m10 offset-m1">
+      <ul class="collection" id="idea-listing"></ul>
+    </div>
+  </div>
+</div>
