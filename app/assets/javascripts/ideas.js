@@ -1,29 +1,39 @@
 $(document).ready(function(){
+    getIdeas();
+    createIdea();
+    deleteIdea();
+});
+
+function getIdeas(){
   $.getJSON('/api/v1/ideas', function(data) {
     $.each(data, function(index, idea){
       renderIdeas(idea)
     })
-  })
-    .then(function(data){ console.log('It Worked')})
-    .fail(function(data){ console.log('It Failed :(')})
-    .always(function(data){ console.log('Stuff is happening.')})
-    deleteIdea();
-    createIdea();
-});
+  });
+};
 
 function renderIdeas(idea) {
   $('#idea-listing').prepend(
     "<li class='collection-item idea' data-id='" + idea.id
     + "'><div class='row' id='idea-item'><div class='col m11'><h5>"
     + idea.title
-    + "</h5><p class='truncate'>"
-    + idea.body
+    + "</h5><p>"
+    + truncate(idea.body)
     + "</p><p>Quality: "
     + idea.quality
     + "</div><div class='col m1'><a class='btn-flat' id='delete-idea'>"
     + "<i class='material-icons'>close</i></a></div></li>"
   )
 };
+
+function truncate(string){
+  if(string.length > 100){
+    return $.trim(string).substring(0, 100)
+           .split(" ").slice(0, -1).join(" ") + "...";
+  } else {
+    return string;
+  }
+}
 
 function createIdea(){
   $('#create-idea').on('click', function(){
@@ -53,8 +63,6 @@ function createIdea(){
 function deleteIdea() {
   $('#idea-listing').delegate('#delete-idea', 'click', function(){
     var $idea = $(this).closest('.idea')
-    console.log($idea)
-    console.log("Data-id: " + $idea.attr('data-id'))
     $.ajax({
       type: 'DELETE',
       url:  '/api/v1/ideas/' + $idea.attr('data-id') + '.json',
