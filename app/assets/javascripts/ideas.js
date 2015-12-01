@@ -7,6 +7,7 @@ $(document).ready(function(){
     .then(function(data){ console.log('It Worked')})
     .fail(function(data){ console.log('It Failed :(')})
     .always(function(data){ console.log('Stuff is happening.')})
+    deleteIdea();
     createIdea();
 });
 
@@ -19,7 +20,8 @@ function renderIdeas(idea) {
     + idea.body
     + "</p><p>Quality: "
     + idea.quality
-    + "</div><div class='col m1'><div id='delete-idea'><i class='material-icons'>close</i></div></div></li>"
+    + "</div><div class='col m1'><a class='btn-flat' id='delete-idea'>"
+    + "<i class='material-icons'>close</i></a></div></li>"
   )
 };
 
@@ -47,3 +49,21 @@ function createIdea(){
     })
   })
 };
+
+function deleteIdea() {
+  $('#idea-listing').delegate('#delete-idea', 'click', function(){
+    var $idea = $(this).closest('.idea')
+
+    $.ajax({
+      type: 'DELETE',
+      url:  '/api/v1/ideas' + $idea.attr('data-id') + '.json',
+      success: function(){
+        $idea.remove()
+      },
+      error: function(){
+        $idea.remove()
+        console.log('Idea already deleted')
+      }
+    })
+  })
+}
