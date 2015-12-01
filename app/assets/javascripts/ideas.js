@@ -15,14 +15,16 @@ function getIdeas(){
 function renderIdeas(idea) {
   $('#idea-listing').prepend(
     "<li class='collection-item idea' data-id='" + idea.id
-    + "'><div class='row' id='idea-item'><div class='col m11'><h5>"
+    + "'><div class='row' id='idea-item'><div class='col m1'><a class='btn-flat' id='thumbs-up-idea'>"
+    + "<i class='large material-icons'>thumb_up</i></a>"
+    + "<a class='btn-flat' id='thumbs-down-idea'><i class='large material-icons'>thumb_down</i></a></div><div class='col m10'><h5>"
     + idea.title
     + "</h5><p>"
     + truncate(idea.body)
     + "</p><p>Quality: "
     + idea.quality
     + "</div><div class='col m1'><a class='btn-flat' id='delete-idea'>"
-    + "<i class='material-icons'>close</i></a></div></li>"
+    + "<i class='large material-icons'>close</i></a></div></li>"
   )
 };
 
