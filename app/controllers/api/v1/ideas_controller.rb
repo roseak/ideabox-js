@@ -6,16 +6,18 @@ class Api::V1::IdeasController < ApplicationController
   end
 
   def create
-    @idea = Idea.new(idea_params)
-    if @idea.save
-      respond_with @idea, status: :created, location: root_path
-    end
+    # @idea = Idea.new(idea_params)
+    # if @idea.save
+    #   respond_with @idea, status: :created, location: root_path
+    # end
+    respond_with :api, :v1, Idea.create(idea_params)
   end
 
   def update
   end
 
   def destroy
+    respond_with Idea.destroy(params[:id])
   end
 
   private
