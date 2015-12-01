@@ -17,6 +17,8 @@ function renderIdeas(idea) {
     + idea.title
     + "</h5><p>"
     + idea.body
-    + "</p></li>"
+    + "</p><p>Quality: "
+    + idea.quality
+    + "</li>"
   )
 };
