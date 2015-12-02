@@ -22,12 +22,13 @@ function renderIdeas(idea) {
     + idea.title
     + "</h5><p>"
     + truncate(idea.body)
-    + "</p><p>Quality: "
+    + "</p><p class='quality'>Quality: "
     + idea.quality
     + "</div><div class='col m1'><a class='btn-flat' id='delete-idea'>"
     + "<i class='large material-icons'>close</i></a></div></li>"
   )
   thumbsUp();
+  thumbsDown();
 };
 
 
@@ -85,8 +86,9 @@ function deleteIdea() {
 
 function thumbsUp(){
   $('#thumbs-up-idea').on('click', function(){
-    var id = $(this).closest('li').attr('data-id')
-    var quality = $(this).closest('li').attr('data-quality')
+    var $idea = $(this).closest('li.collection-item.idea')
+    var $id = $(this).closest('li').attr('data-id')
+    var $quality = $(this).closest('li').attr('data-quality')
     var thumbsUpMap = {
       genius: "genius",
       plausible: "genius",
@@ -94,17 +96,48 @@ function thumbsUp(){
     }
     var ideaParams = {
       idea: {
-        quality: thumbsUpMap[quality]
+        quality: thumbsUpMap[$quality]
       }
     }
 
     $.ajax({
       type: 'PUT',
-      url: '/api/v1/ideas/' + id + '.json',
+      url: '/api/v1/ideas/' + $id + '.json',
       data: ideaParams,
       success: function(idea){
-        console.log(idea)
-        // renderIdeas(idea)
+        updateQuality($idea, idea.quality);
+      },
+    })
+  })
+}
+
+function updateQuality(idea, quality){
+  $(idea).find('.quality').html('Quality: ' + quality);
+  $(idea).attr('data-quality', quality);
+}
+
+function thumbsDown(){
+  $('#thumbs-down-idea').on('click', function(){
+    var $idea = $(this).closest('li.collection-item.idea')
+    var $id = $(this).closest('li').attr('data-id')
+    var $quality = $(this).closest('li').attr('data-quality')
+    var thumbsDownMap = {
+      genius: "plausible",
+      plausible: "swill",
+      swill: "swill"
+    }
+    var ideaParams = {
+      idea: {
+        quality: thumbsDownMap[$quality]
+      }
+    }
+
+    $.ajax({
+      type: 'PUT',
+      url: '/api/v1/ideas/' + $id + '.json',
+      data: ideaParams,
+      success: function(idea){
+        updateQuality($idea, idea.quality);
       },
     })
   })

@@ -10,7 +10,8 @@ class Api::V1::IdeasController < ApplicationController
   end
 
   def update
-    respond_with Idea.update(params[:id], idea_params), location: nil
+    @idea = Idea.update(params[:id], idea_params)
+    respond_with @idea, json: @idea
   end
 
   def destroy
