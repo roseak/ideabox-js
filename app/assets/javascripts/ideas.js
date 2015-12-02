@@ -16,22 +16,40 @@ function renderIdeas(idea) {
   $('#idea-listing').prepend(
     "<li class='collection-item idea' data-id='" + idea.id
     + "' data-quality='" + idea.quality
-    + "'><div class='row' id='idea-item'><div class='col m1'><a class='btn-flat' id='thumbs-up-idea'>"
+    + "'><div class='row' id='idea-item'><div class='col s1' id='thumbs'>"
+    + "<a class='btn-flat' id='thumbs-up-idea'>"
     + "<i class='large material-icons'>thumb_up</i></a>"
-    + "<a class='btn-flat' id='thumbs-down-idea'><i class='large material-icons'>thumb_down</i></a></div><div class='col m10'><h5>"
+    + "<a class='btn-flat' id='thumbs-down-idea'>"
+    + "<i class='large material-icons'>thumb_down</i></a></div>"
+    + "<div class='col s10' id='idea-meat'><h5>"
     + idea.title
     + "</h5><p>"
     + truncate(idea.body)
     + "</p><p class='quality'>Quality: "
     + idea.quality
-    + "</div><div class='col m1'><a class='btn-flat' id='delete-idea'>"
+    + "</div><div class='col s1'><a class='btn-flat' id='delete-idea'>"
     + "<i class='large material-icons'>close</i></a></div></li>"
   )
   thumbsUp();
   thumbsDown();
+  searched();
 };
 
-
+function searched(){
+  $('#filter').keyup(function(){
+    var filter = $(this).val(), count = 0;
+    $('#idea-listing li').each(function(){
+      if ($(this).text().search(new RegExp(filter, 'i')) < 0) {
+        $(this).fadeOut();
+      } else {
+        $(this).show();
+        count++;
+      }
+    });
+    var numberItems = count;
+    $('#filter-count').text('Number of Comments = ' +count);
+  });
+}
 
 function truncate(string){
   if(string.length > 100){
