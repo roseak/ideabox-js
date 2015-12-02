@@ -3,12 +3,12 @@
     <a href="#" id="brand-logo">IdeaBox2.0</a>
     <ul id="nav-mobile" class="right">
       <li>
-        <form>
+        <form id="live-search" action="" class="styled" method="post">
           <div class="input-field">
-            <input id="search-query" type="search" required>
-            <label for="search-query"><i class="material-icons">search</i></label>
-            <i class="material-icons">close</i>
+            <input id="filter" type="text" class="text-input" value="" />
+            <label for="filter"><i class="material-icons">search</i></label>
           </div>
+          <span id="filter-count"></span>
         </form>
       </li>
     </ul>
@@ -16,21 +16,6 @@
 </nav>
 
 <div class="container">
-  <div class="row">
-    <form id="live-search" action="" class="styled" method="post">
-      <fieldset>
-        <input type="text" class="text-input" id="filter" value="" />
-        <span id="filter-count"></span>
-      </fieldset>
-    </form>
-    <!-- <div class="col m8 offset-m2" id="search-form">
-      <div class="form-group" id="search-box">
-        <input class="form-control" type="search" id="search-query">
-        <label for="search-query">What ideas are you looking for?</label>
-      </div>
-    </div> -->
-  </div>
-
   <div class="row">
     <div class="col m8 offset-m2">
       <div class="input-field">

@@ -17,22 +17,25 @@ function renderIdeas(idea) {
     "<li class='collection-item idea' data-id='" + idea.id
     + "' data-quality='" + idea.quality
     + "'><div class='row' id='idea-item'><div class='col s1' id='thumbs'>"
-    + "<a class='btn-flat' id='thumbs-up-idea'>"
-    + "<i class='large material-icons'>thumb_up</i></a>"
-    + "<a class='btn-flat' id='thumbs-down-idea'>"
-    + "<i class='large material-icons'>thumb_down</i></a></div>"
-    + "<div class='col s10' id='idea-meat'><h5>"
+    // + "<a class='secondary-content btn-flat' id='thumbs-up-idea'>"
+    + "<i class='large material-icons' id='thumbs-up-idea'>thumb_up</i>"
+    // + "<a class='secondary-content btn-flat' id='thumbs-down-idea'>"
+    + "<i class='large material-icons' id='thumbs-down-idea'>thumb_down</i></div>"
+    + "<div class='col s10' id='idea-meat'>"
+    + "<p contenteditable='true' class='title-editable'>"
     + idea.title
-    + "</h5><p>"
+    + "</p><p contenteditable='true' class='body-editable'>"
     + truncate(idea.body)
     + "</p><p class='quality'>Quality: "
     + idea.quality
-    + "</div><div class='col s1'><a class='btn-flat' id='delete-idea'>"
-    + "<i class='large material-icons'>close</i></a></div></li>"
+    + "</div><div class='col s1'><a class='secondary-content btn-flat' id='delete-idea'>"
+    + "<p class='right-align'><i class='large material-icons'>close</i></p></a></div></li>"
   )
   thumbsUp();
   thumbsDown();
   searched();
+  editTitle();
+  editBody();
 };
 
 function searched(){
@@ -47,7 +50,7 @@ function searched(){
       }
     });
     var numberItems = count;
-    $('#filter-count').text('Number of Comments = ' +count);
+    $('#filter-count').text('Number of Ideas = ' +count);
   });
 }
 
@@ -100,6 +103,63 @@ function deleteIdea() {
       }
     })
   })
+}
+
+function editTitle(){
+  $('.title-editable').keydown(function(event){
+    if(event.keyCode == 13){
+      var $title = event.currentTarget.textContent
+      var $idea = $(this).closest('li.collection-item.idea')
+      var $id = $(this).closest('li').attr('data-id')
+      var ideaParams = {
+        idea: {
+          title: $title
+        }
+      }
+
+      $.ajax({
+        type: 'PUT',
+        url: '/api/v1/ideas/' + $id + '.json',
+        data: ideaParams,
+        success: function(idea){
+          $(event.target).blur();
+          updateTitle($idea, idea.title);
+        }
+      })
+    }
+  })
+}
+
+function updateTitle(idea, title){
+  $(idea).find('.title-editable').html(title);
+}
+
+function editBody(){
+  $('.body-editable').keydown(function(event){
+    if(event.keyCode == 13){
+      var $body = event.currentTarget.textContent
+      var $idea = $(this).closest('li.collection-item.idea')
+      var $id = $(this).closest('li').attr('data-id')
+      var ideaParams = {
+        idea: {
+          body: $body
+        }
+      }
+
+      $.ajax({
+        type: 'PUT',
+        url: '/api/v1/ideas/' + $id + '.json',
+        data: ideaParams,
+        success: function(idea){
+          updateBody($idea, idea.body);
+        }
+      })
+    }
+  })
+}
+
+function updateBody(idea, body){
+  $(idea).find('.body-editable').html(body);
 }
 
 function thumbsUp(){

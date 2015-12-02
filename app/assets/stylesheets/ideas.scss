@@ -1,11 +1,3 @@
-#search-query {
-  text-align: center;
-}
-
-#search-box {
-  text-align: center;
-}
-
 #delete-idea {
   margin-top: 5px;
   margin-right: 50px;
@@ -22,14 +14,22 @@
 //   margin-right: 50px;
 // }
 
-// #thumbs-up-idea {
-//   position: absolute;
-//   color: red;
-//   padding-top: 2px;
-//   padding-right: 2rem;
-//   padding-bottom: 2rem;
-//   padding-left: 1rem;
-// }
+.title-editable {
+  outline-width: thin;
+  outline-color: green;
+}
+
+.body-editable {
+  outline-width: thin;
+  outline-color: green;
+}
+a#thumbs-up-idea.secondary-content.btn-flat {
+  // padding-top: 2px;
+  // padding-right: 2rem;
+  // padding-bottom: 2rem;
+  padding-left: 2rem;
+  margin-left: 2rem;
+}
 
 // #thumbs-down-idea {
 //   position: absolute;
@@ -45,8 +45,13 @@
   font-size: 30px;
 }
 
-#search-query {
-  padding-left: 150px;
+#live-search {
+  padding-right: 70px;
+}
+
+#filter-count {
+  color: black;
+  padding-left: 10px;
 }
 
 .nav-wrapper {
