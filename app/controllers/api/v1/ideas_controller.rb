@@ -6,14 +6,11 @@ class Api::V1::IdeasController < ApplicationController
   end
 
   def create
-    # @idea = Idea.new(idea_params)
-    # if @idea.save
-    #   respond_with @idea, status: :created, location: root_path
-    # end
-    respond_with :api, :v1, Idea.create(idea_params)
+    respond_with Idea.create(idea_params), location: nil
   end
 
   def update
+    respond_with Idea.update(params[:id], idea_params), location: nil
   end
 
   def destroy
@@ -23,6 +20,6 @@ class Api::V1::IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:title, :body)
+    params.require(:idea).permit(:title, :body, :quality)
   end
 end
