@@ -151,6 +151,7 @@ function editBody(){
         url: '/api/v1/ideas/' + $id + '.json',
         data: ideaParams,
         success: function(idea){
+          $(event.target).blur();
           updateBody($idea, idea.body);
         }
       })
