@@ -17,10 +17,8 @@ function renderIdeas(idea) {
     "<li class='collection-item idea' data-id='" + idea.id
     + "' data-quality='" + idea.quality
     + "'><div class='row' id='idea-item'><div class='col s1' id='thumbs'>"
-    // + "<a class='secondary-content btn-flat' id='thumbs-up-idea'>"
-    + "<i class='large material-icons' id='thumbs-up-idea'>thumb_up</i>"
-    // + "<a class='secondary-content btn-flat' id='thumbs-down-idea'>"
-    + "<i class='large material-icons' id='thumbs-down-idea'>thumb_down</i></div>"
+    + "<i class='material-icons' id='thumbs-up-idea'>thumb_up</i>"
+    + "<i class='material-icons' id='thumbs-down-idea'>thumb_down</i></div>"
     + "<div class='col s10' id='idea-meat'>"
     + "<p contenteditable='true' class='title-editable'>"
     + idea.title
@@ -28,8 +26,8 @@ function renderIdeas(idea) {
     + truncate(idea.body)
     + "</p><p class='quality'>Quality: "
     + idea.quality
-    + "</div><div class='col s1'><a class='secondary-content btn-flat' id='delete-idea'>"
-    + "<p class='right-align'><i class='large material-icons'>close</i></p></a></div></li>"
+    + "</div><div class='col s1'>"
+    + "<i class='material-icons' id='delete-idea'>close</i></div></li>"
   )
   thumbsUp();
   thumbsDown();

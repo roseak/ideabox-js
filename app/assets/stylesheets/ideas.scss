@@ -9,36 +9,35 @@
   margin-bottom: -.1rem;
 }
 
-// #delete-idea.btn-flat i {
-//   color: red;
-//   margin-right: 50px;
-// }
+#delete-idea {
+  font-size: 30px;
+  color: #283593;
+  margin-top: .5rem;
+}
 
 .title-editable {
   outline-width: thin;
-  outline-color: green;
+  outline-color: #1a237e;
 }
 
 .body-editable {
   outline-width: thin;
-  outline-color: green;
+  outline-color: #1a237e;
 }
-a#thumbs-up-idea.secondary-content.btn-flat {
-  // padding-top: 2px;
-  // padding-right: 2rem;
-  // padding-bottom: 2rem;
-  padding-left: 2rem;
-  margin-left: 2rem;
+#thumbs-up-idea {
+  padding-top: .5rem;
+  font-size: 30px;
+  padding-left: .5rem;
+  color: #283593;
 }
 
-// #thumbs-down-idea {
-//   position: absolute;
-//   color: red;
-  // padding-top: 25px;
-  // padding-right: 2rem;
-//   padding-bottom: 2rem;
-//   padding-left: 1rem;
-// }
+#thumbs-down-idea {
+  font-size: 30px;
+  color: #283593;
+  padding-top: 25px;
+  padding-right: 2rem;
+  padding-left: .5rem;
+}
 
 #brand-logo {
   padding-left: 1.5rem;
