@@ -11,4 +11,10 @@ require 'mocha/mini_test'
 class ActiveSupport::TestCase
   fixtures :all
   include Capybara::DSL
+
+  def setup
+    Capybara.app = IdeaboxJs::Application
+    Capybara.current_driver = Capybara.javascript_driver
+    Capybara.default_max_wait_time = 5
+  end
 end
