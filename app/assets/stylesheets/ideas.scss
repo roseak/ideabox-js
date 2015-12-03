@@ -42,7 +42,7 @@
 }
 
 #thumbs-up-idea {
-  padding-top: .5rem;
+  padding-top: 1rem;
   font-size: 30px;
   padding-left: .5rem;
   color: #7986cb;
@@ -80,4 +80,18 @@
 
 .nav-wrapper {
   background-color: #3f51b5;
+}
+
+[contenteditable="true"].single-line {
+  white-space: nowrap;
+  // width:;
+  overflow: hidden;
+}
+[contenteditable="true"].single-line br {
+  display:none;
+
+}
+[contenteditable="true"].single-line * {
+  display:inline;
+  white-space:nowrap;
 }
