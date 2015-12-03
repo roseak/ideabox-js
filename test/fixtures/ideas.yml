@@ -1,11 +1,17 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  title: MyString
-  body: MyString
-  quality: 1
+  title: Testing
+  body: For All The Green Dots
+  quality: 2
+  created_at: <%= Time.now %>
 
 two:
-  title: MyString
-  body: MyString
+  title: Dinner
+  body: Pizza and Cookies
   quality: 1
+  created_at:  <%= Time.now + 20 %>
+
+three:
+  title: Sometimes Long Ideas Are Great
+  body: When truncated, the idea is harder to see.  But who really cares about this dumb idea anyway?  Definitely Not me.  Nope.  Truncate this one!
+  quality: 0
+  created_at: <%= Time.now %>
