@@ -14,7 +14,10 @@ class UserCanSeeIdeasTest < ActionDispatch::IntegrationTest
 
   test "ideas appear based on when they were created" do
     visit "/"
-    assert page.all(".idea").first.has_content?("Dinner")
+    fill_in("idea-title", with: "First")
+    fill_in("idea-body", with: "Idea")
+    click_on("Create Idea")
+    assert page.all(".idea").first.has_content?("First")
   end
 
   test "ideas are truncated by the word when longer than 100 characters" do

@@ -1,7 +1,7 @@
 one:
   title: Testing
   body: For All The Green Dots
-  quality: 2
+  quality: 0
   created_at: <%= Time.now %>
 
 two:
