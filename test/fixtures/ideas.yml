@@ -7,7 +7,7 @@ one:
 two:
   title: Dinner
   body: Pizza and Cookies
-  quality: 1
+  quality: 0
   created_at:  <%= Time.now + 20 %>
 
 three:
