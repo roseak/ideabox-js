@@ -1,7 +1,4 @@
-// .tooltip{
-//   display: inline;
-//   position: relative;
-// }
+
 
 #idea-item {
   line-height: 15px;
@@ -32,6 +29,14 @@
   padding-left: .2rem;
 }
 
+.body-editable:hover {
+  color: #1e88e5;
+}
+
+.title-editable:hover {
+  color: #1e88e5;
+}
+
 .quality {
   padding: .2rem;
 }
@@ -44,7 +49,7 @@
 }
 
 #thumbs-up-idea:hover {
-  color: #1e88e5
+  color: #1e88e5;
 }
 
 #thumbs-down-idea {
