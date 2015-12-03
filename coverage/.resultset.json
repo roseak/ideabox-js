@@ -3,6 +3,9 @@
     "coverage": {
       "/Users/rosekohn/turing/m4/ideabox-js/app/models/idea.rb": [
         1,
+        11,
+        1,
+        1,
         1,
         null
       ],
@@ -28,8 +31,36 @@
       "/Users/rosekohn/turing/m4/ideabox-js/app/helpers/ideas_helper.rb": [
         1,
         null
+      ],
+      "/Users/rosekohn/turing/m4/ideabox-js/app/controllers/api/v1/ideas_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
       ]
     },
-    "timestamp": 1448923185
+    "timestamp": 1449108546
   }
 }

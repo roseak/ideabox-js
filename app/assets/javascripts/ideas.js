@@ -17,8 +17,8 @@ function renderIdeas(idea) {
     "<li class='collection-item idea' data-id='" + idea.id
     + "' data-quality='" + idea.quality
     + "'><div class='row' id='idea-item'><div class='col s1' id='thumbs'>"
-    + "<i class='material-icons' id='thumbs-up-idea'>thumb_up</i>"
-    + "<i class='material-icons' id='thumbs-down-idea'>thumb_down</i></div>"
+    + "<i class='material-icons tooltip' id='thumbs-up-idea'>thumb_up</i>"
+    + "<i class='material-icons tooltip' id='thumbs-down-idea'>thumb_down</i></div>"
     + "<div class='col s10' id='idea-meat'>"
     + "<p contenteditable='true' class='title-editable'>"
     + idea.title
@@ -48,7 +48,7 @@ function searched(){
       }
     });
     var numberItems = count;
-    $('#filter-count').text('Number of Ideas = ' +count);
+    $('#filter-count').text('Matching Ideas: ' +count);
   });
 }
 

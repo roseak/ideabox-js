@@ -28,4 +28,5 @@ group :test do
   gem 'simplecov'
   gem 'selenium-webdriver'
   gem 'mocha'
+  gem 'launchy'
 end
