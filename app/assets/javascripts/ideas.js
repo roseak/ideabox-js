@@ -20,9 +20,9 @@ function renderIdeas(idea) {
     + "<i class='material-icons tooltip' id='thumbs-up-idea'>thumb_up</i>"
     + "<i class='material-icons tooltip' id='thumbs-down-idea'>thumb_down</i></div>"
     + "<div class='col s10' id='idea-meat'>"
-    + "<p contenteditable='true' class='title-editable'>"
+    + "<h5 contenteditable='true' class='title-editable'>"
     + idea.title
-    + "</p><p contenteditable='true' class='body-editable'>"
+    + "</h5><p contenteditable='true' class='body-editable'>"
     + truncate(idea.body)
     + "</p><p class='quality'>Quality: "
     + idea.quality
@@ -219,8 +219,3 @@ function thumbsDown(){
     })
   })
 }
-
-
-// function updateIdea() {
-//   $('#idea-listing').delegate('#update-idea', )
-// }
