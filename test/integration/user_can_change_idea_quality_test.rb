@@ -15,4 +15,17 @@ class UserCanChangeIdeaQualityTest < ActionDispatch::IntegrationTest
       assert page.has_content?("genius")
     end
   end
+
+  test "user can thumbs down an idea" do
+    visit "/"
+    first("#thumbs-up-idea").click
+    first("#thumbs-up-idea").click
+    first("#thumbs-down-idea").click
+    assert page.has_content?("plausible")
+
+    first("#thumbs-down-idea").click
+    within(first(".idea")) do
+      assert page.has_content?("swill")
+    end
+  end
 end
