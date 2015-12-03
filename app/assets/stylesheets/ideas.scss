@@ -1,42 +1,62 @@
-#delete-idea {
-  margin-top: 5px;
-  margin-right: 50px;
-  padding-right: 50px;
-}
+// .tooltip{
+//   display: inline;
+//   position: relative;
+// }
 
 #idea-item {
   line-height: 15px;
   margin-bottom: -.1rem;
 }
 
+#delete-idea:hover {
+  color: #1e88e5
+}
+
 #delete-idea {
   font-size: 30px;
-  color: #283593;
+  color: #7986cb;
   margin-top: .5rem;
 }
 
 .title-editable {
   outline-width: thin;
   outline-color: #1a237e;
+  padding: .3rem;
+  font-size: 20px;
 }
 
 .body-editable {
   outline-width: thin;
   outline-color: #1a237e;
+  padding: .1rem;
+  padding-left: .2rem;
 }
+
+.quality {
+  padding: .2rem;
+}
+
 #thumbs-up-idea {
   padding-top: .5rem;
   font-size: 30px;
   padding-left: .5rem;
-  color: #283593;
+  color: #7986cb;
+}
+
+#thumbs-up-idea:hover {
+  color: #1e88e5
 }
 
 #thumbs-down-idea {
   font-size: 30px;
-  color: #283593;
+  color: #7986cb;
   padding-top: 25px;
   padding-right: 2rem;
   padding-left: .5rem;
+}
+
+#thumbs-down-idea:hover {
+  color: #1e88e5
 }
 
 #brand-logo {
