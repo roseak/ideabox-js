@@ -19,7 +19,6 @@ class UserCanSeeIdeasTest < ActionDispatch::IntegrationTest
 
   test "ideas are truncated by the word when longer than 100 characters" do
     visit "/"
-    save_and_open_page
     assert page.has_content?("When truncated, the idea is harder to see.  But who really cares about this dumb idea anyway? ...")
   end
 end
