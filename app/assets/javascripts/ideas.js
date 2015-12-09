@@ -48,7 +48,7 @@ function searched(){
       }
     });
     var numberItems = count;
-    $('#filter-count').text('Matching Ideas: ' +count);
+    $('#filter-count').text('Ideas: ' +count);
   });
 }
 
