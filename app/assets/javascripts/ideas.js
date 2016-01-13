@@ -12,6 +12,18 @@ function getIdeas(){
   });
 };
 
+var thumbsUpMap = {
+  genius: "genius",
+  plausible: "genius",
+  swill: "plausible"
+}
+
+var thumbsDownMap = {
+  genius: "plausible",
+  plausible: "swill",
+  swill: "swill"
+}
+
 function renderIdeas(idea) {
   $('#idea-listing').prepend(
     "<li class='collection-item idea' data-id='" + idea.id
@@ -29,8 +41,9 @@ function renderIdeas(idea) {
     + "</div><div class='col s1'>"
     + "<i class='material-icons' id='delete-idea'>close</i></div></li>"
   )
-  thumbsUp();
-  thumbsDown();
+
+  thumbed('up', thumbsUpMap);
+  thumbed('down', thumbsDownMap);
   searched();
   editTitle();
   editBody();
@@ -161,51 +174,20 @@ function updateBody(idea, body){
   $(idea).find('.body-editable').html(body);
 }
 
-function thumbsUp(){
-  $('#thumbs-up-idea').on('click', function(){
-    var $idea = $(this).closest('li.collection-item.idea')
-    var $id = $(this).closest('li').attr('data-id')
-    var $quality = $(this).closest('li').attr('data-quality')
-    var thumbsUpMap = {
-      genius: "genius",
-      plausible: "genius",
-      swill: "plausible"
-    }
-    var ideaParams = {
-      idea: {
-        quality: thumbsUpMap[$quality]
-      }
-    }
-
-    $.ajax({
-      type: 'PUT',
-      url: '/api/v1/ideas/' + $id + '.json',
-      data: ideaParams,
-      success: function(idea){
-        updateQuality($idea, idea.quality);
-      },
-    })
-  })
-}
-
 function updateQuality(idea, quality){
   $(idea).find('.quality').html('Quality: ' + quality);
   $(idea).attr('data-quality', quality);
 }
 
-function thumbsDown(){
-  $('#thumbs-down-idea').on('click', function(){
+function thumbed(direction, map){
+  $('#thumbs-' + direction + '-idea').on('click', function(){
     var $idea = $(this).closest('li.collection-item.idea')
     var $id = $(this).closest('li').attr('data-id')
     var $quality = $(this).closest('li').attr('data-quality')
-    var thumbsDownMap = {
-      genius: "plausible",
-      plausible: "swill",
-      swill: "swill"
-    }
+
     var ideaParams = {
       idea: {
-        quality: thumbsDownMap[$quality]
+        quality: map[$quality]
       }
     }
 
@@ -216,6 +198,6 @@ function thumbsDown(){
       success: function(idea){
         updateQuality($idea, idea.quality);
       },
-    })
-  })
-}
+    });
+  });
+};
