@@ -23,13 +23,4 @@ ActiveRecord::Schema.define(version: 20151201025046) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
-
-  create_table "skills", force: :cascade do |t|
-    t.string   "name"
-    t.text     "details"
-    t.integer  "level"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
 end
